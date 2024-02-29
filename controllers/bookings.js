@@ -9,7 +9,7 @@ exports.getBookings = async (req, res, next) => {
   //General users can see only their bookings!
   if (req.user.role !== 'admin') {
     query = Booking.find({ user: req.user.id }).populate({
-      path: 'dentist',
+      path: 'Dentist',
       select: 'name experience expertise',
     });
   } else {
@@ -17,12 +17,12 @@ exports.getBookings = async (req, res, next) => {
     if (req.params.dentistId) {
       console.log(req.params.dentistId);
       query = Booking.find({ dentist: req.params.dentistId }).populate({
-        path: 'dentist',
+        path: 'Dentist',
         select: 'name experience expertise',
       });
     } else {
       query = Booking.find().populate({
-        path: 'dentist',
+        path: 'Dentist',
         select: 'name experience expertise',
       });
     }
@@ -48,7 +48,7 @@ exports.getBookings = async (req, res, next) => {
 exports.getBooking = async (req, res, next) => {
   try {
     const booking = await Booking.findById(req.params.id).populate({
-      path: 'dentist',
+      path: 'Dentist',
       select: 'name experience expertise',
     });
 
