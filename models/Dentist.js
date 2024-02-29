@@ -9,14 +9,14 @@ const DentistSchema = new mongoose.Schema(
       trim: true,
       maxlength: [50, 'Name cannot be more than 50 characters'],
     },
-    experience:{
+    experience: {
       type: String,
       required: [true, 'Please add a years of experience'],
     },
-    expertise:{
+    expertise: {
       type: String,
       required: [true, 'Please add a years of expertise'],
-    }
+    },
   },
   {
     toJSON: { virtuals: true },
@@ -30,13 +30,13 @@ DentistSchema.pre(
   { document: true, query: false },
   async function (next) {
     console.log(`Bookings being removed from dentist ${this._id}`);
-    await this.model('Booking').deleteMany({ dentist : this._id });
+    await this.model('Booking').deleteMany({ dentist: this._id });
     next();
   }
 );
 
 //Reverse populate with virtuals
-DentistlSchema.virtual('booking', {
+DentistSchema.virtual('booking', {
   ref: 'Booking',
   localField: '_id',
   foreignField: 'dentist',
