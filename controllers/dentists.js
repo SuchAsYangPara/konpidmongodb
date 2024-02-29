@@ -134,7 +134,7 @@ exports.deleteDentist = async (req, res, next) => {
     if (!dentist) {
       return res.status(400).json({
         success: false,
-        message: `Bootcamp not found with id of ${req.params.id}`,
+        message: `dentist not found with id of ${req.params.id}`,
       });
     }
     await dentist.deleteOne();
@@ -143,18 +143,4 @@ exports.deleteDentist = async (req, res, next) => {
     console.log(err.stack);
     res.status(400).json({ success: false });
   }
-};
-
-//@desc     Get vaccine centers
-//@route    GET /api/v1/dentists/vacCenters
-//@access   Public
-exports.getVacCenters = (req, res, next) => {
-  vacCenter.getAll((err, data) => {
-    if (err) {
-      res.status(500).send({
-        message:
-          err.message || 'Some error occured while retrieving Vaccing Centers.',
-      });
-    } else res.send(data);
-  });
 };
