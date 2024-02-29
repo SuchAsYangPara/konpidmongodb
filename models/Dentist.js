@@ -43,4 +43,4 @@ DentistSchema.virtual('booking', {
   justOne: false,
 });
 
-module.exports = mongoose.model('Dentist', DentistlSchema);
+module.exports = mongoose.model('Dentist', DentistSchema);

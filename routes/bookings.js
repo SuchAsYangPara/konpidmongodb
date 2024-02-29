@@ -1,6 +1,12 @@
 const express = require('express');
 
-const { getBookings, addBooking, getBooking, updateBooking, deleteBooking } = require('../controllers/booking');
+const {
+  getBookings,
+  addBooking,
+  getBooking,
+  updateBooking,
+  deleteBooking,
+} = require('../controllers/bookings');
 
 const router = express.Router({ mergeParams: true });
 
