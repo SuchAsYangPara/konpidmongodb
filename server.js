@@ -18,9 +18,9 @@ dotenv.config({ path: './config/config.env' });
 connectDB();
 
 //Route files
-const hospitals = require('./routes/hospitals');
+const dentists = require('./routes/dentists');
 const auth = require('./routes/auth');
-const appointments = require('./routes/booking');
+const appointments = require('./routes/bookings');
 
 const app = express();
 
@@ -72,7 +72,7 @@ const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 //Mount routers
-app.use('/api/v1/hospitals', hospitals);
+app.use('/api/v1/hospitals', dentists);
 app.use('/api/v1/auth', auth);
 app.use('/api/v1/appointments', appointments);
 
