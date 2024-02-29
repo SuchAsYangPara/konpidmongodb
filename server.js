@@ -72,9 +72,9 @@ const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 //Mount routers
-app.use('/api/v1/hospitals', dentists);
+app.use('/api/v1/dentists', dentists);
 app.use('/api/v1/auth', auth);
-app.use('/api/v1/appointments', appointments);
+app.use('/api/v1/bookings', appointments);
 
 const PORT = process.env.PORT || 5000;
 
