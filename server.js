@@ -20,7 +20,7 @@ connectDB();
 //Route files
 const dentists = require('./routes/dentists');
 const auth = require('./routes/auth');
-const appointments = require('./routes/bookings');
+const bookings = require('./routes/bookings');
 
 const app = express();
 
@@ -74,7 +74,7 @@ app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 //Mount routers
 app.use('/api/v1/dentists', dentists);
 app.use('/api/v1/auth', auth);
-app.use('/api/v1/bookings', appointments);
+app.use('/api/v1/bookings', bookings);
 
 const PORT = process.env.PORT || 5000;
 
