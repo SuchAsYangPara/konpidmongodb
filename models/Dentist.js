@@ -36,7 +36,7 @@ DentistSchema.pre(
 );
 
 //Reverse populate with virtuals
-DentistSchema.virtual('booking', {
+DentistSchema.virtual('bookings', {
   ref: 'Booking',
   localField: '_id',
   foreignField: 'dentist',

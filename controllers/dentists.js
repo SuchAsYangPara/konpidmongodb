@@ -24,7 +24,7 @@ exports.getDentists = async (req, res, next) => {
   );
 
   //finding resource
-  query = Dentist.find(JSON.parse(queryStr)).populate('appointments');
+  query = Dentist.find(JSON.parse(queryStr)).populate('bookings');
 
   //Select Fields
   if (req.query.select) {
