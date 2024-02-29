@@ -1,0 +1,7 @@
+# ignore all node_modules
+node_modules/*
+# ignore config
+config/config.env
+# ignore postman
+VacQ.postman_collection.json
+newman/*
