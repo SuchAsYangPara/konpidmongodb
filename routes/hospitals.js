@@ -6,7 +6,7 @@ const {
   updateHospital,
   deleteHospital
 } = require('../controllers/hospitals');
-const appointmentRouter = require('./appointments');
+const appointmentRouter = require('./booking');
 
 const router = express.Router();
 
