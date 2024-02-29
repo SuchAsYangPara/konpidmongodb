@@ -4,8 +4,7 @@ const {
   getHospital,
   createHospital,
   updateHospital,
-  deleteHospital,
-  getVacCenters,
+  deleteHospital
 } = require('../controllers/hospitals');
 const appointmentRouter = require('./appointments');
 
@@ -20,7 +19,6 @@ router
   .route('/')
   .get(getHospitals)
   .post(protect, authorize('admin'), createHospital);
-router.route('/vacCenters').get(getVacCenters);
 router
   .route('/:id')
   .get(getHospital)
