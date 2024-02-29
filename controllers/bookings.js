@@ -1,5 +1,5 @@
 const Booking = require('../models/Booking');
-const dentist = require('../models/Dentist');
+const Dentist = require('../models/Dentist');
 
 //@desc     Get all bookings
 //@route    GET /api/v1/bookings
@@ -78,7 +78,7 @@ exports.addBooking = async (req, res, next) => {
   try {
     req.body.dentist = req.params.dentistId;
 
-    const dentist = await dentist.findById(req.params.dentistId);
+    const dentist = await Dentist.findById(req.params.dentistId);
 
     if (!dentist) {
       return res.status(404).json({
