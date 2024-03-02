@@ -87,7 +87,8 @@ exports.getDentist = async (req, res, next) => {
     const dentist = await Dentist.findById(req.params.id);
 
     if (!dentist) {
-      return res.status(400).json({ success: false });
+      return res.status(400).json({ success: false,
+      message: `Dentist not found with id of ${req.params.id}`  });
     }
 
     res.status(200).json({ success: true, data: dentist });
@@ -115,12 +116,16 @@ exports.updateDentist = async (req, res, next) => {
     });
 
     if (!dentist) {
-      return res.status(400).json({ success: false });
+      return res.status(400).json({ 
+        success: false,
+        message: `Dentist not found with id of ${req.params.id}` });
     }
 
     res.status(200).json({ success: true, data: dentist });
   } catch (err) {
-    res.status(400).json({ success: false });
+    res.status(400).json({ 
+      success: false,
+      message: `Cannot update dentist` });
   }
 };
 
@@ -134,7 +139,7 @@ exports.deleteDentist = async (req, res, next) => {
     if (!dentist) {
       return res.status(400).json({
         success: false,
-        message: `dentist not found with id of ${req.params.id}`,
+        message: `Dentist not found with id of ${req.params.id}`,
       });
     }
     await dentist.deleteOne();
