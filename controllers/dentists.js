@@ -1,4 +1,4 @@
-const Dentist = require('../models/Dentist');
+const Dentist = require("../models/Dentist");
 
 //@desc     Get all dentists
 //@route    GET /api/v1/dentists
@@ -10,7 +10,7 @@ exports.getDentists = async (req, res, next) => {
   const reqQuery = { ...req.query };
 
   //Fields to exclude
-  const removeFields = ['select', 'sort', 'page', 'limit'];
+  const removeFields = ["select", "sort", "page", "limit"];
 
   //Loop over remove fields and delete them from reqQuery
   removeFields.forEach((param) => delete reqQuery[param]);
@@ -24,19 +24,19 @@ exports.getDentists = async (req, res, next) => {
   );
 
   //finding resource
-  query = Dentist.find(JSON.parse(queryStr)).populate('bookings');
+  query = Dentist.find(JSON.parse(queryStr)).populate("bookings");
 
   //Select Fields
   if (req.query.select) {
-    const fields = req.query.select.split(',').join(' ');
+    const fields = req.query.select.split(",").join(" ");
     query = query.select(fields);
   }
   //Sort
   if (req.query.sort) {
-    const sortBy = req.query.sort.split(',').join(' ');
+    const sortBy = req.query.sort.split(",").join(" ");
     query = query.sort(sortBy);
   } else {
-    query = query.sort('-createAt');
+    query = query.sort("-createAt");
   }
 
   //Pagination
@@ -96,10 +96,10 @@ exports.getDentist = async (req, res, next) => {
   }
 };
 
-//@desc     Create new dentist
+//@desc     Add new dentist
 //@route    POST /api/v1/dentists
 //@access   Private
-exports.createDentist = async (req, res, next) => {
+exports.addDentist = async (req, res, next) => {
   const dentist = await Dentist.create(req.body);
   res.status(201).json({ success: true, data: dentist });
 };
