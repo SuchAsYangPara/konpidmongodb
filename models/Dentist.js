@@ -24,7 +24,7 @@ const DentistSchema = new mongoose.Schema(
   }
 );
 
-//Cascade delete appointments when a hospital is deleted
+//Cascade delete bookings when a dentist is deleted
 DentistSchema.pre(
   'deleteOne',
   { document: true, query: false },
