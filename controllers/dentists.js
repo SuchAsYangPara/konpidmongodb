@@ -36,7 +36,7 @@ exports.getDentists = async (req, res, next) => {
     const sortBy = req.query.sort.split(',').join(' ');
     query = query.sort(sortBy);
   } else {
-    query = query.sort('-createAt');
+    query = query.sort('name');
   }
 
   //Pagination
