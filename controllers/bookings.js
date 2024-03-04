@@ -72,7 +72,7 @@ exports.getBooking = async (req, res, next) => {
 };
 
 //@desc     Add booking
-//@route    POST /api/v1/dentist/:dentistId/booking
+//@route    POST /api/v1/dentists/:dentistId/bookings
 //@access   Private
 exports.addBooking = async (req, res, next) => {
   try {
